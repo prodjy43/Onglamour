@@ -37,3 +37,9 @@ Route::group(['prefix' => 'account'], function() {
 
     Route::delete('delete/{id}','AccountController@delete')->middleware('auth');
 });
+
+Route::group(['prefix' => 'rdv', 'middleware' => 'auth'], function() {
+    Route::get('nouveau-rendez-vous', function(){
+    	return view('rdv.new', ['title' => 'Nouveau rendez vous']);
+    });
+});

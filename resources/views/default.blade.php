@@ -22,10 +22,20 @@
                     <nav id="nav">
                         <ul>
                             <li><a href="/">Acceuil</a></li>
-                            <li><a href="">Galerie</a></li>
-                            <li><a href="">Rendez-vous</a></li>
+                            <li><a href="/">Galerie</a></li>
+                            <li><a href="/rdv/nouveau-rendez-vous">Rendez-vous</a></li>
                             @if (Auth::check())
                                 <li><a href="/account/{{ Auth::user()->nom }}/{{ Auth::user()->prenom }}">{{ Auth::user()->prenom }} {{ Auth::user()->nom }}</a></li>
+                                @if (Auth::user()->grade_id === 2)
+                                    <li><a href="#!" class="icon fa-angle-down">Administration</a>
+                                        <ul>
+                                            <li><a href="">Gestion utilisateur</a></li>
+                                            <li><a href="">Voir rendez-vous</a></li>
+                                            <li><a href="">Gestion des news</a></li>
+                                            <li><a href="">Ajouter photos (Galerie)</a></li>
+                                        </ul>
+                                    </li>
+                                @endif
                                 <li><a href="/account/logout">Déconnexion</a></li>
                             @else
                                 <li><a href="/account/register" class="button special">Inscription</a></li>

@@ -2036,7 +2036,7 @@
 		select:focus,
 		textarea:focus {
 			border-color: #e89980;
-			box-shadow: 0 0 0 2px #e89980;
+			box-shadow: 0 0 0 1px #e89980;
 		}
 
 	.select-wrapper {
