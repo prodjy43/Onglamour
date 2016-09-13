@@ -1,91 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('default')
 
-        <title>Laravel</title>
+@section('content')
+    <section class="box special">
+        <header class="major">
+            <h2>Bienvenur sur le site Onglamour</h2>
+            <p>Ou tout ce que vous voulez sur vos ongles devien possible<br />
+            et tout ça as un prix abordable de tous.</p>
+        </header>
+        <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+    </section>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway';
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+    <section class="box special features">
+        <div class="features-row">
+            <section>
+                <span class="icon major fa-info accent2"></span>
+                <h3>Informations</h3>
+                <p>Bonjour mesdames, je m'appelle <strong>Daniela Biedermann</strong> et j'habite au <strong>Ch.Du Mont de Pitié 16 à Cortaillod</strong>.<br>Si vous voulez me joindre vous pouvez me contacter par téléphone <strong>à partir de 11h au (+41) 79/769.27.64</strong> ou sur facebook à ce lien : <a href="http://www.facebook.com/onglamour23">www.facebook.com/onglamour23</a></p>
+            </section>
+            <section>
+                <span class="icon major fa-child accent3"></span>
+                <h3>Enfants</h3>
+                <p>Pour les enfants il est possible de faire un <strong><br>remplissage et déco pour 20.-</strong>.<br> <strong>Vernis sans gel.</strong></p>
+            </section>
         </div>
-    </body>
-</html>
+        <div class="features-row">
+            <section>
+                <span class="icon major fa-female accent4"></span>
+                <h3>Etudiantes</h3>
+                <p><strong>Pose complète : 50.-</strong><br>
+                <strong>Remplissage : 30.-</strong><br>
+                <strong>Déco : 5.-</strong><br>
+                <strong>Pieds : 20.-</strong><br>
+                <strong>Pieds + Mains : rabais 5.-</strong><br>
+                <strong>Dépose de gel : 10.-</strong></p>
+            </section>
+            <section>
+                <span class="icon major fa-user accent5"></span>
+                <h3>Adultes</h3>
+                <p><strong>Pose complète : 70.-</strong><br>
+                <strong>Remplissage : 50.-</strong><br>
+                <strong>Déco : 10.-</strong><br>
+                <strong>Pieds : 30.-</strong><br>
+                <strong>Pieds + Mains : rabais 5.-</strong><br>
+                <strong>Dépose de gel : 10.-</strong></p>
+            </section>
+        </div>
+    </section>
+
+    <div class="row">
+        <div class="6u 12u(narrower)">
+
+            <section class="box special">
+                <span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+                <h3>Sed lorem adipiscing</h3>
+                <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button alt">Learn More</a></li>
+                </ul>
+            </section>
+
+        </div>
+        <div class="6u 12u(narrower)">
+
+            <section class="box special">
+                <span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
+                <h3>Accumsan integer</h3>
+                <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button alt">Learn More</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+@stop
