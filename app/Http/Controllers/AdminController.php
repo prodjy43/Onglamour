@@ -27,7 +27,21 @@ class AdminController extends Controller
     		$message->to($meeting->email);
     	});
 
-    	return response()->json(['message' => 'Request completed']);
+    	return redirect('/admin/rendez-vous');
+    }
+
+    public function declineRdv($id){
+    	$this->id = $id;
+    	$meeting = Meeting::where('id_meeting', $id)->join('users', 'user_id', '=', 'users.id')->first();
+    	$this->updateRdv($id);
+    	Mail::send('emails.decline', ['meeting' => $meeting], function($message){
+    		$meeting = Meeting::where('id_meeting', $this->id)->join('users', 'user_id', '=', 'users.id')->first();
+    		$message->from('sdbiedermann@bluewin.ch', 'Daniela Biedermann');
+
+    		$message->to($meeting->email);
+    	});
+
+    	return redirect('/admin/rendez-vous');
     }
 
     protected function updateRdv($id){

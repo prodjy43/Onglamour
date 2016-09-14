@@ -3772,9 +3772,9 @@
 		</section>
 		<section id="main" class="container">
 			<section class="box special">
-				<h2>Rendez-vous accepté</h2>
-				<p>Votre rendez-vous du {{ $meeting->date }} à {{ $meeting->heure }} a été accepté</p>
-				<p>Si vous voulez quelconque autre informations vous pouvez m'appeler au (+41)79/769.27.64 ou m'envoyer un mail à sdbiedermann@gmail.com</p>
+				<h2>Rendez-vous décliné</h2>
+				<p>Votre rendez-vous du {{ $meeting->date }} à {{ $meeting->heure }} a été décliné</p>
+				<p>veuillez me rapeller au (+41)79/769.27.64 ou m'envoyer un mail à sdbiedermann@gmail.com pour fixer un nouveau rendez-vous</p>
 			</section>
 		</section>
 	</div>
