@@ -40,6 +40,37 @@ Route::group(['prefix' => 'account'], function() {
 
 Route::group(['prefix' => 'rdv', 'middleware' => 'auth'], function() {
     Route::get('nouveau-rendez-vous', function(){
-    	return view('rdv.new', ['title' => 'Nouveau rendez vous']);
+    	$forfait = [
+    		'Adultes' => [
+    			'Adultes Pose complete' => 'Pose complète : 70.-',
+    			'Adultes Remplissage' => 'Remplissage : 50.-',
+    			'Adultes Deco' => 'Déco : 10.-',
+    			'Adultes Pieds' => 'Pieds : 30.-',
+    			'Adultes Pieds + Mains' => 'Pieds + Mains : rabais 5.-',
+    			'Adultes Dépose de gel' => 'Dépose de gel : 10.-',
+    		],
+    		'Etudiantes' => [
+    			'Etudiantes Pose complete' => 'Pose complète : 50.-',
+    			'Etudiantes Remplissage' => 'Remplissage : 30.-',
+    			'Etudiantes Deco' => 'Déco : 5.-',
+    			'Etudiantes Pieds' => 'Pieds : 20.-',
+    			'Etudiantes Pieds + Mains' => 'Pieds + Mains : rabais 5.-',
+    			'Etudiantes Dépose de gel' => 'Dépose de gel : 10.-',
+    		],
+    		'Enfants' => [
+    			'Enfants Remplissage et deco' => 'Remplissage et déco pour 20.-'
+    		]
+    	];
+    	return view('rdv.new', ['title' => 'Nouveau rendez vous', 'forfait' => $forfait]);
     });
+
+    Route::post('store', 'MeetingController@store');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
+    Route::get('rendez-vous', 'AdminController@showRdv');
+
+    Route::get('rendez-vous/accept/{id}', 'AdminController@acceptRdv');
+
+    Route::get('rendez-vous/decline/{id}', 'AdminController@declineRdv');
 });

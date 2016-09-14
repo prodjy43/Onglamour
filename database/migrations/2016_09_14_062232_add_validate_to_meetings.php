@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableGrades extends Migration
+class AddValidateToMeetings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTableGrades extends Migration
      */
     public function up()
     {
-        Schema::create('grades', function (Blueprint $table) {
-            $table->increments('id_grade');
-            $table->string('grade')->unique();
-            $table->text('description');
-            $table->timestamps();
+        Schema::table('meetings', function (Blueprint $table) {
+            $table->boolean('validate')->default(false);
         });
     }
 
@@ -28,6 +25,8 @@ class CreateTableGrades extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grades');
+        Schema::table('meetings', function (Blueprint $table) {
+            //
+        });
     }
 }

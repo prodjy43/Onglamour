@@ -18,7 +18,7 @@ class AccountController extends Controller
 	 */
     public function show($nom,$prenom)
     {
-    	$user = User::where('nom', $nom)->where('prenom', $prenom)->join('grades', 'grade_id', '=', 'grades.id')->first();
+    	$user = User::where('nom', $nom)->where('prenom', $prenom)->join('grades', 'grade_id', '=', 'grades.id_grade')->first();
     	if ($user === null) {
     		return redirect('/');
     	}else{

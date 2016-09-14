@@ -14,10 +14,10 @@ class CreateTableMeetings extends Migration
     public function up()
     {
         Schema::create('meetings', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_meeting');
             $table->string('forfait');
-            $table->date('date');
-            $table->time('heure');
+            $table->string('date');
+            $table->string('heure');
             $table->integer('user_id');
             $table->timestamps();
         });
