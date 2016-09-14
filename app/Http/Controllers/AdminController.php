@@ -61,6 +61,21 @@ class AdminController extends Controller
     	return redirect('/admin/rendez-vous');
     }
 
+    public function showUpdateNews($slug){
+        $news = News::where('slug', $slug)->join('users', 'user_id', '=', 'users.id')->first();
+        return view('admin.editNews', ['title' => 'Edition news', 'news' => $news]);
+    }
+
+    public function updateNews(Request $request, $slug){
+        $this->updateStoredNews($request->all(), $slug);
+        return redirect('/admin/news');
+    }
+
+    public function deleteNews($slug){
+        News::where('slug', $slug)->delete();
+        return redirect('/admin/news');
+    }
+
     protected function updateRdv($id){
     	return Meeting::where('id_meeting', $id)->update([
     			'validate' => 1,
@@ -69,11 +84,19 @@ class AdminController extends Controller
 
     protected function createNews(array $data, $name){
         return News::create([
-                'title' => $data['title'],
-                'content' => $data['content'],
-                'image' => $name,
-                'slug' => str_slug($data['title']),
-                'user_id' => Auth::user()->id,
+            'title' => $data['title'],
+            'content' => $data['content'],
+            'image' => $name,
+            'slug' => str_slug($data['title']),
+            'user_id' => Auth::user()->id,
+        ]);
+    }
+
+    protected function updateStoredNews(array $data, $slug){
+        return News::where('slug', $slug)->update([
+            'title' => $data['title'],
+            'content' => $data['content'],
+            'slug' => str_slug($data['title']),
         ]);
     }
 }

@@ -77,4 +77,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::get('news', 'AdminController@showNews');
 
     Route::post('news/add', 'AdminController@storeNews');
+
+    Route::get('news/edit/{slug}', 'AdminController@showUpdateNews');
+
+    Route::put('news/edit/{slug}', 'AdminController@updateNews');
+
+    Route::get('news/delete/{slug}', 'AdminController@deleteNews');
 });
