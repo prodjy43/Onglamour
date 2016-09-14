@@ -18,7 +18,7 @@
 						<td>{{ $meeting->forfait }}</td>
 						<td>{{ $meeting->prenom }} {{ $meeting->nom }}</td>
 						<td>{{ $meeting->date }} à {{ $meeting->heure }}</td>
-						<td><a href="/admin/rendez-vous/accept/{{ $meeting->id }}" class="button small fa fa-check"></a> <a href="/admin/rendez-vous/decline/{{ $meeting->id }}" class="button small fa fa-times"></a></td>
+						<td><a href="/admin/rendez-vous/accept/{{ $meeting->id_meeting }}" class="button small fa fa-check"></a> <a href="/admin/rendez-vous/decline/{{ $meeting->id_meeting }}" class="button small fa fa-times"></a></td>
 					</tr>
 				@endforeach
 			</tbody>
