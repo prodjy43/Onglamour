@@ -73,4 +73,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::get('rendez-vous/accept/{id}', 'AdminController@acceptRdv');
 
     Route::get('rendez-vous/decline/{id}', 'AdminController@declineRdv');
+
+    Route::get('news', 'AdminController@showNews');
+
+    Route::post('news/add', 'AdminController@storeNews');
 });

@@ -31,7 +31,7 @@
                                         <ul>
                                             <li><a href="">Gestion utilisateur</a></li>
                                             <li><a href="/admin/rendez-vous">Voir rendez-vous</a></li>
-                                            <li><a href="">Gestion des news</a></li>
+                                            <li><a href="/admin/news">Gestion des news</a></li>
                                             <li><a href="">Ajouter photos (Galerie)</a></li>
                                         </ul>
                                     </li>
