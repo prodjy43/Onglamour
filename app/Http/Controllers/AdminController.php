@@ -24,6 +24,19 @@ class AdminController extends Controller
         return view('admin.news', ['title' => 'Gestion news',  'news' => $news]);
     }
 
+    public function showGalerie(){
+        return view('admin.galerie', ['title' => 'Administration galerie']);
+    }
+
+    public function storeGalerie(Request $request){
+        $name = sha1(uniqid()).'.'.$request->all()['image']->extension();
+        if (move_uploaded_file($request->all()['image']->path(), public_path('images/galerie/'.$name))) {
+            return redirect('/admin/galerie');
+        }else{
+            return redirect('/');
+        }
+    }
+
     public function storeNews(Request $request){
         $name = sha1(uniqid()).'.'.$request->all()['image']->extension();
         if (move_uploaded_file($request->all()['image']->path(), public_path('images/upload/'.$name))) {

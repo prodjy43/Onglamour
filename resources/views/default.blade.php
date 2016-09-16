@@ -23,7 +23,7 @@
                         <ul>
                             <li><a href="/">Acceuil</a></li>
                             <li><a href="/blog">Blog</a></li>
-                            <li><a href="/">Galerie</a></li>
+                            <li><a href="/galerie">Galerie</a></li>
                             <li><a href="/rdv/nouveau-rendez-vous">Rendez-vous</a></li>
                             @if (Auth::check())
                                 <li><a href="/account/{{ Auth::user()->nom }}/{{ Auth::user()->prenom }}">{{ Auth::user()->prenom }} {{ Auth::user()->nom }}</a></li>
@@ -33,7 +33,7 @@
                                             <li><a href="">Gestion utilisateur</a></li>
                                             <li><a href="/admin/rendez-vous">Voir rendez-vous</a></li>
                                             <li><a href="/admin/news">Gestion des news</a></li>
-                                            <li><a href="">Ajouter photos (Galerie)</a></li>
+                                            <li><a href="/admin/galerie">Ajouter photos (Galerie)</a></li>
                                         </ul>
                                     </li>
                                 @endif

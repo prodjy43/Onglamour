@@ -16,6 +16,11 @@ Route::get('/', function () {
     return view('welcome' , ['title' => 'Accueil', 'news' => $news]);
 });
 
+Route::get('/galerie', function(){
+    $files = File::files('images/galerie');
+    return view('galerie', ['title' => 'galerie photo', 'files' => $files]);
+});
+
 
 Route::group(['prefix' => 'account'], function() {
     Route::get('{nom}/{prenom}', 'AccountController@show')->middleware('auth');
@@ -84,6 +89,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::put('news/edit/{slug}', 'AdminController@updateNews');
 
     Route::get('news/delete/{slug}', 'AdminController@deleteNews');
+
+    Route::get('galerie', 'AdminController@ShowGalerie');
+
+    Route::post('galerie/add', 'AdminController@storeGalerie');
 });
 
 Route::group(['prefix' => 'blog'], function() {
