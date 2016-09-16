@@ -48,29 +48,24 @@
     </section>
 
     <div class="row">
+    @foreach ($news as $data)
         <div class="6u 12u(narrower)">
 
             <section class="box special">
-                <span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-                <h3>Sed lorem adipiscing</h3>
-                <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+                <span class="image featured"><img src="{{ elixir('images/upload/'.$data['image']) }}" alt="{{ elixir('images/upload/'.$data['image']) }}" /></span>
+                <h3>{{ $data->title }}</h3>
+                <p>{!! nl2br($data->content) !!}</p>
                 <ul class="actions">
-                    <li><a href="#" class="button alt">Learn More</a></li>
+                    <li><a href="/blog/{{ $data->slug }}" class="button alt">Voir la news</a></li>
                 </ul>
             </section>
 
         </div>
-        <div class="6u 12u(narrower)">
-
-            <section class="box special">
-                <span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-                <h3>Accumsan integer</h3>
-                <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-                <ul class="actions">
-                    <li><a href="#" class="button alt">Learn More</a></li>
-                </ul>
-            </section>
-
+    @endforeach
+    </div>
+    <div class="row">
+        <div class="12u 12u(mobilep)" style="text-align: center;">
+            <a href="/blog" class="button">Voir toutes les news</a>
         </div>
     </div>
 @stop

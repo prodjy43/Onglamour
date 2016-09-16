@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome' , ['title' => 'Accueil']);
+    $news = App\News::join('users', 'user_id', '=', 'users.id')->orderBy('news.created_at', 'desc')->limit(4)->get();
+    return view('welcome' , ['title' => 'Accueil', 'news' => $news]);
 });
 
 
