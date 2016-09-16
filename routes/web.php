@@ -85,3 +85,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
 
     Route::get('news/delete/{slug}', 'AdminController@deleteNews');
 });
+
+Route::group(['prefix' => 'blog'], function() {
+    Route::get('', 'blogController@showAll');
+
+    Route::get('{slug}', 'blogController@show');
+
+    Route::post('{slug}', 'blogController@postCom')->middleware('auth');
+
+    Route::get('edit/{id}', 'blogController@editForm')->middleware('auth');
+
+    Route::put('edit/{id}', 'blogController@editCom')->middleware('auth');
+});

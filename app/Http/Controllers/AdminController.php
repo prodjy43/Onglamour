@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Meeting;
 use App\News;
+use App\Comment;
 
 class AdminController extends Controller
 {
@@ -73,6 +74,7 @@ class AdminController extends Controller
 
     public function deleteNews($slug){
         News::where('slug', $slug)->delete();
+        Comment::where('news_slug', $slug)->delete();
         return redirect('/admin/news');
     }
 

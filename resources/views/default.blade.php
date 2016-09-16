@@ -22,6 +22,7 @@
                     <nav id="nav">
                         <ul>
                             <li><a href="/">Acceuil</a></li>
+                            <li><a href="/blog">Blog</a></li>
                             <li><a href="/">Galerie</a></li>
                             <li><a href="/rdv/nouveau-rendez-vous">Rendez-vous</a></li>
                             @if (Auth::check())
