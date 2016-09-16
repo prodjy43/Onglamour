@@ -30,7 +30,7 @@
                                 @if (Auth::user()->grade_id === 2)
                                     <li><a href="#!" class="icon fa-angle-down">Administration</a>
                                         <ul>
-                                            <li><a href="">Gestion utilisateur</a></li>
+                                            <li><a href="/admin/user">Gestion utilisateur</a></li>
                                             <li><a href="/admin/rendez-vous">Voir rendez-vous</a></li>
                                             <li><a href="/admin/news">Gestion des news</a></li>
                                             <li><a href="/admin/galerie">Ajouter photos (Galerie)</a></li>

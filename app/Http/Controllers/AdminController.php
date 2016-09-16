@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Meeting;
 use App\News;
+use App\User;
+use App\Grade;
 use App\Comment;
 
 class AdminController extends Controller
@@ -89,6 +91,36 @@ class AdminController extends Controller
         News::where('slug', $slug)->delete();
         Comment::where('news_slug', $slug)->delete();
         return redirect('/admin/news');
+    }
+
+    public function user(){
+        $users = User::where('grade_id', '<>', 2)->join('grades', 'grade_id', '=', 'grades.id_grade')->paginate(15);
+        return view('admin.user', ['users' => $users, 'title' => 'Liste des utilisateurs']); 
+    }
+
+    public function editUser($slug){
+        $slug = explode('-', $slug);
+        $user = User::where('nom', $slug[0])->where('prenom', $slug[1])->first();
+        $grades = Grade::all();
+        return view('admin.editUser', ['user' => $user, 'grades' => $grades, 'title' => 'edition '.$slug[0].' '.$slug[1]]);
+    }
+
+    public function modUser(Request $request, $slug){
+        $slug = explode('-', $slug);
+        $user = $this->updateUser($request->all(), $slug);
+        return redirect('/admin/user/edit/'.$slug[0].'-'.$slug[1]);
+    }
+
+    public function deleteUser($slug){
+        $slug = explode('-', $slug);
+        User::where('nom', $slug[0])->where('prenom', $slug[1])->delete();
+        return redirect('/admin/user');
+    }
+
+    protected function updateUser(array $data, $slug){
+        return User::where('nom', $slug[0])->where('prenom', $slug[1])->update([
+            'grade_id' => $data['grade'],
+        ]);
     }
 
     protected function updateRdv($id){
