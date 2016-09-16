@@ -7,7 +7,7 @@
             <p>Ou tout ce que vous voulez sur vos ongles devien possible<br />
             et tout ça as un prix abordable de tous.</p>
         </header>
-        <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+        <span class="image featured"><img src="images/banner.jpg" alt="" height="350px"/></span>
     </section>
 
     <section class="box special features">
